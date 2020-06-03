@@ -5,7 +5,7 @@
 #################################################################
 # You may tune these values to fit your setup:
 #################################################################
-INSTALL_PREFIX := /usr/local
+INSTALL_PREFIX := $(PREFIX)
 TOOLS_PREFIX :=
 
 CC := $(TOOLS_PREFIX)gcc 
