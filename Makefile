@@ -64,7 +64,7 @@ clean:
 static: z80ex.o z80ex_dasm.o
 	${AR} rs ./lib/${EMU}.a z80ex.o
 	${AR} rs ./lib/${DASM}.a z80ex_dasm.o
-	
+
 shared: z80ex.o z80ex_dasm.o
 ifeq (${OS},Darwin)
 	${LINKER} -dynamiclib -compatibility_version ${API_REVISION} -current_version ${VERSION_STR} -install_name ${INSTALL_PREFIX}/lib/${EMU}.${API_REVISION}.dylib -o ./lib/${EMU}.${VERSION_STR}.dylib z80ex.o
@@ -73,7 +73,7 @@ else
 	${LINKER} -shared -Wl,-soname,${EMU}.so.${API_REVISION} -o ./lib/${EMU}.so.${VERSION_STR} z80ex.o
 	${LINKER} -shared -Wl,-soname,${DASM}.so.${API_REVISION} -o ./lib/${DASM}.so.${VERSION_STR} z80ex_dasm.o	
 endif
-	
+
 install:
 	install -d ${INSTALL_PREFIX}/lib
 	install ./lib/* ${INSTALL_PREFIX}/lib
